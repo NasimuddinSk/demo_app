@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var indexValue = 0;
+  var currentValue = 0;
 
   List<String> item = ["Home", "Electronic", "Fashion", "Homedecor", "Books"];
 
@@ -84,8 +85,40 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap: (index) {
+          setState(() {
+            currentValue = index;
+          });
+        },
+        selectedItemColor: Colors.black87,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
+        unselectedItemColor: Colors.black45,
+        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
+        currentIndex: currentValue,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_rounded),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: "Category",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_checkout_rounded),
+            label: "Cart",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_rounded),
+            label: "Profile",
+          ),
+        ],
+      ),
       body: ListView(
         children: [
+          SizedBox(height: 5),
           search(),
           SizedBox(height: 5),
           catrgory(),
