@@ -318,6 +318,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// ignore: camel_case_types
 class offer extends StatelessWidget {
   const offer({super.key});
 
